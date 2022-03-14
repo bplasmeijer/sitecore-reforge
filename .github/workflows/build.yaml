@@ -35,9 +35,9 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Build and Push
         run: |
-          $env:REGISTRY="ghcr.io/"
-          docker-compose build cm 
-          docker-compose push solution
+          $env:REGISTRY="ghcr.io/${{ github.actor }}/sitecore-reforge/"
+          docker-compose build
+          docker-compose push
           
           
       
