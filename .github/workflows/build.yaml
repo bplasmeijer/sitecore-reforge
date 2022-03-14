@@ -36,7 +36,10 @@ jobs:
       - name: Build and Push
         run: |
           export REGISTRY=ghcr.io
-          docker-compose build solution 
+          docker-compose build --build-arg REGISTRY=ghcr.io solution 
           docker-compose push solution
+          
+          
+      
 
           
