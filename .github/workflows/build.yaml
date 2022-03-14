@@ -36,8 +36,8 @@ jobs:
       - name: Build and Push
         run: |
           $env:REGISTRY="ghcr.io/${{ github.actor }}/sitecore-reforge/"
-          docker-compose build
-          docker-compose push
+          docker-compose build solution cm mssql mssql-init
+          docker-compose push solution cm mssql mssql-init
           
           
       
