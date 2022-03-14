@@ -18,7 +18,7 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: windows-latest
+    runs-on: windows-2019
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -36,6 +36,7 @@ jobs:
       - name: Build and Push
         run: |
           $env:REGISTRY="ghcr.io/${{ github.actor }}/sitecore-reforge/"
+          $env:VERSION="2019"
           docker-compose build solution cm mssql mssql-init
           docker-compose push solution cm mssql mssql-init
           
