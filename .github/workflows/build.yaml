@@ -24,10 +24,18 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
     
       # Runs a set of commands using the runners shell
-      - name: Build
+      - name: Build and Push
         run: |
-          docker-compose build
+          docker-compose build solution
+          docker-compose push solution
 
           
